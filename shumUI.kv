@@ -1,8 +1,31 @@
-ShumBody:
-    canvas.before:
-        Color:
-            rgba: 0, 0, 0, 1  # Soft blue background
-        Rectangle:
-            pos: self.pos
-            size: self.size
-        
+            
+<ScreenManager>:
+    HomeScreen:
+    ShumScreen:
+<HomeScreen>:
+    name: "Home"
+    BoxLayout:
+        orientation: "horizontal"
+       
+        Image:
+            source: './public/shumHIMSELF.png'
+            size: self.texture_size
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                text: "What would you like to know about Shum?"
+            Button:
+                text: "Who is Shum?"
+                on_press: root.change_screen()
+            Button:
+                text: "What is the Church of Shum?"
+                on_press: root.change_screen()
+            
+
+<ShumScreen>
+    name: "WhoIsShum"
+    BoxLayout:
+        orientation: "horizontal"
+        Button:
+            text: "Shum is the man"
+            on_press: root.change_screen()
