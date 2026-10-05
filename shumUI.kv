@@ -1,32 +1,27 @@
             
 <ScreenManager>:
-    
     HomeScreen:
     ShumScreen:
+
 <HomeScreen>:
-    name: "Home"
-    BoxLayout:
-        orientation: "horizontal"
-       
-        Image:
-            source: './public/shumHIMSELF.png'
-            size: self.texture_size
-        BoxLayout:
-            orientation: "vertical"
-            Label:
-                text: "What would you like to know about Shum?"
-            Button:
-                text: "Who is Shum?"
-                on_press: root.change_screen()
-            Button:
-                text: "What is the Church of Shum?"
-                on_press: root.change_screen()
             
 
 <ShumScreen>
-    name: "WhoIsShum"
+    name: "ShumScreen"
     BoxLayout:
         orientation: "horizontal"
+        
         Button:
-            text: "Shum is the man"
+            id: the_button
+            text: ""
             on_press: root.change_screen()
+            halign: 'center'
+            valign: 'middle'
+            color: 0, 0, 0, 1
+            background_color: 0, 0, 0, 0
+            
+            font_size: '18sp' 
+            
+            text_size: self.size
+            padding: [10,2,10,2]
+            
