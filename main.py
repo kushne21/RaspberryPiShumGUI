@@ -24,12 +24,24 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 from kivy.graphics import Color, Line
 from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
+from kivy.clock import Clock
 #BasicApp inherits properties of App
 Window.clearcolor = (1, 1, 1, 1)
 
 
 
 class ShumScreen(Screen):
+    def on_enter(self):
+        # Store the clock object so it can be unscheduled later
+        self.track_event = Clock.schedule_interval(self.switch_away, 65.0)
+
+    
+    def switch_away(self, dt):
+        self.change_screen()
+
+    def on_leave(self):
+        Clock.unschedule(self.track_event)
+
     def change_screen(self):
         self.manager.current = "HomeScreen"
 
