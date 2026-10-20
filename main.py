@@ -9,11 +9,19 @@ os.environ["KIVY_NO_ARGS"] = "1"
 from kivy.config import Config
 
 # Set viewport width and height (e.g., iPhone 12/13 Pro size: 390x844)
-Config.set("graphics", "width", "800")
-Config.set("graphics", "height", "480")
+#Config.set("graphics", "width", "800")
+#Config.set("graphics", "height", "480")
 
 # Prevent the user from resizing the window during the test
-Config.set("graphics", "resizable", "0")
+#Config.set("graphics", "resizable", "0")
+
+
+# 2. Remove the window border and close/minimize buttons
+#Config.set('graphics', 'borderless', '1')
+
+# 3. Force the window to take up the full screen
+#Config.set('graphics', 'fullscreen', 'auto')
+
 import random
 from kivy.app import App
 from kivy.uix.label import Label
