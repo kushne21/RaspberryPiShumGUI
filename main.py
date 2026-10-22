@@ -55,28 +55,38 @@ class ShumScreen(Screen):
         self.manager.current = "HomeScreen"
 
 class ShumWidget(Image):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # Clear the drawing every 5 seconds
+        
+
+    def clear_drawing(self, dt):
+        self.canvas.after.clear()
+
+    def on_parent(self, widget, parent):
+        # Stop the timer when this widget is removed from the screen
+        if parent is None:
+            self._clear_event.cancel()
+
+    def on_touch_up(self, touch):
+        if 'line' in touch.ud:
+            Clock.unschedule(self.clear_drawing)
+            Clock.schedule_once(self.clear_drawing, 120)
+        return True
+
     def on_touch_down(self, touch):
-        # 1. Check if the click/touch happened inside the image boundaries
         if self.collide_point(*touch.pos):
-            with self.canvas:
-                # 2. Set the drawing color (e.g., Red)
-                Color(0, 0, 0, 1) 
-                
-                # 3. Create a starting point line
+            with self.canvas.after:      
+                Color(0, 0, 0, 1)
                 touch.ud['line'] = Line(points=(touch.x, touch.y), width=2)
-            
-            # Allow the touch to propagate if needed
             return True
         return True
-        return super(ShumWidget, self.on_touch_down)(touch)
 
     def on_touch_move(self, touch):
-        # 4. Drag to draw lines if the initial touch was valid
         if self.collide_point(*touch.pos) and 'line' in touch.ud:
             touch.ud['line'].points += [touch.x, touch.y]
             return True
         return True
-        return super(ShumWidget, self.on_touch_move)(touch)
 
 class HomeScreen(Screen):
     def __init__(self, **kwargs):
