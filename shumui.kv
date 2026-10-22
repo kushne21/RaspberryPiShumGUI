@@ -9,8 +9,9 @@
 <ShumScreen>
     name: "ShumScreen"
     BoxLayout:
-        orientation: "horizontal"
-        
+        orientation: "vertical"
+        padding: [20, 0, 20, 0]
+
         Button:
             id: the_button
             text: ""
@@ -19,9 +20,10 @@
             valign: 'middle'
             color: 0, 0, 0, 1
             background_color: 0, 0, 0, 0
+            text_size: self.width, None
+   
+            font_size: self.width * 0.1 if self.texture_size[0] > self.width else '16sp'
             
-            font_size: '18sp' 
             
-            text_size: self.size
-            padding: [10,2,10,2]
+           
             

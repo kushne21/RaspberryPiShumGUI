@@ -10,8 +10,8 @@ from kivy.config import Config
 
 
 # Set viewport width and height (e.g., iPhone 12/13 Pro size: 390x844)
-# Config.set("graphics", "width", "800")
-# Config.set("graphics", "height", "480")
+# Config.set("graphics", "width", "700")
+# Config.set("graphics", "height", "390")
 
 # Prevent the user from resizing the window during the test
 #Config.set("graphics", "resizable", "0")
@@ -111,7 +111,8 @@ class HomeScreen(Screen):
         z= random.uniform(0.1, 1) 
         b = random.uniform(0.1, 1) 
         e = random.uniform(0.1, 1) 
-        button = Button(border=[30,30,30,30],text=strquestion, bold=True, background_normal='',background_color=[z, b, e, 0.2],  color = [z,b,e,1], font_size = '20sp', halign='center', valign='center')
+        
+        button = Button(border=[20,20,20,20],text=strquestion, bold=True, background_normal='',background_color=[z, b, e, 0.4],  color = [0,0,e,1], font_size = '17sp', halign='center', valign='center')
         button.bind(size=lambda instance, size: setattr(instance, 'text_size', (size[0], None)))
         button.bind(on_press=lambda instance: self.change_screen(strans))
         outerlayout.add_widget(button)
@@ -133,7 +134,7 @@ class HomeScreen(Screen):
                     "How can I contact you (Ashton Kushner) or see more of your art?": "Go to my website: \n ashtonkushner.com"
                 }
         randoms={
-                    "Well what does the snail one mean?":"The painting \"Midwestern Snome (Advertisement)\" is about commercials and advertisements. In my experience, commercials tend to have mysterious or otherwise nonsensical plots, for example a medicine advertisement with the visuals being completely unrelated. Here, I've taken a topic to advertise: the midwestern United States. \n \n I've pared down the idea of the midwest to a random, specific stereotype: cornfields.Thus, you have a simple agrarian scene, but of course it also needs characters, that being two gnomes. These were added arbitrarily, but I've chosen the foreground gnome to be a snail with a warm smile to be more inviting to the viewer. \n \n Other aspects of the scene are there to evoke advertisement-like imagery, the clouds acting as slot machines or the floating state-shaped dollars to evoke the feeling of monetary gain from this place. Because the image only loosely resembles the midwest, and claims to be of the midwest, the purpose of deception and giving you the urge to buy a service because of an icon fulfills its role within the exhibition. Of course, because of the red-yellow flower, you can assume a certain Being resides within the painting.",
+                    "Well what does the snail one mean?":"The painting \"Midwestern Snome (Advertisement)\" is about commercials and advertisements. In my experience, commercials tend to have mysterious or otherwise nonsensical plots, for example a medicine advertisement with the visuals being completely unrelated. Here, I've taken a topic to advertise: the midwestern United States. \n \n I've pared down the idea of the midwest to a random, specific stereotype: cornfields.Thus, you have a simple agrarian scene, but of course it also needs characters, that being two gnomes. These were added arbitrarily, but I've chosen the foreground gnome to be a snail with a warm smile to be more inviting to the viewer. \n \n Other aspects of the scene are there to evoke advertisement-like imagery, the clouds acting as slot machines or the floating state-shaped dollars to evoke the feeling of monetary gain from this place. Because the image only loosely resembles the midwest, and claims to be of the midwest, the purpose of deception and giving you the urge to buy a service because of an icon fulfills its role within the exhibition. Because of the red-yellow flower, you can assume Somebody resides within the painting.",
                     "Is Shum supposed to be Jesus?" : "Shum is not related to any figure from any other religion. \n Shumblism is not a critique or parody of any major religion, but you may interpret it as a critique of cults such as Scientology if you wish.",
                     "How do I convert to Shumblism?" : "Ask Shum.",
                     "Who is the old lady in that painting?" : "Ask Shum.",
